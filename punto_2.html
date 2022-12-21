@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Punto 2</title>
+    <style>
+        body{
+            text-align: center;
+        }
+        input{
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Interfaz que deletrea texto</h1>
+    <input tipe="text" name="entrada" id="entrada" placeholder="Ingrese palabra" required onblur="verificar()">
+    <button onclick="deletrar()">DELETREAR</button>
+    <button onclick="actualizar()">ACTUALIZAR</button><br>
+    <span id="espacio"></span>
+    <span id="espacio_"></span>
+
+    <script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js" integrity="sha512-AA1Bzp5Q0K1KanKKmvN/4d3IRKVlv9PYgwFPvm32nPO6QS8yH1HO7LbgB1pgiOxPtfeg5zEn2ba64MUcqJx6CA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+
+        function deletrar(){
+            var palabra = $("#entrada").val();
+            array_palabra = palabra.split("");
+
+            
+
+            if(palabra.length <= 1){
+                swal("ingrese una palabra");
+                $("#entrada").css("border","solid");
+                $("#entrada").css("border-color","red");
+            } else{
+                $("#espacio").html("EL TEXTO TIENE "+palabra.length+" CARACTERES");
+                $("#entrada").css("border","solid");
+                $("#entrada").css("border-color","green");
+                for(let i=0; i<array_palabra.length; i++){
+                    var esp = document.createElement("div");
+                    esp.textContent = array_palabra[i];
+                    
+                }
+            }
+            
+            
+        }
+
+        function actualizar(){
+            
+        }
+    </script>
+</body>
+</html>
