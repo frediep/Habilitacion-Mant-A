@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Punto 1</title>
+    <style>
+        h1{
+            text-align: center;
+        }
+        body{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Interfaz para evaluzar palabras</h1>
+    <input tipe="text" name="entrada" id="entrada" placeholder="Ingrese palabra" required onblur="verificar()">
+
+    <script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js" integrity="sha512-AA1Bzp5Q0K1KanKKmvN/4d3IRKVlv9PYgwFPvm32nPO6QS8yH1HO7LbgB1pgiOxPtfeg5zEn2ba64MUcqJx6CA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        //alert();
+        function verificar(){
+            var palabra = $("#entrada").val();
+            //console.log(palabra);
+            array_palabra = palabra.split("");
+            //console.log(array_palabra);
+            array_reverso = array_palabra.reverse();
+            //console.log(array_reverso);
+            palabra_final = array_reverso.join("");
+            //console.log(palabra_final);
+            if(palabra.length <= 1){
+                swal("ingrese una palabra");
+                $("#entrada").css("border","solid");
+                $("#entrada").css("border-color","red");
+            } else if(palabra == palabra_final){
+                swal("La palabra se lee igual al derecho y al reves");
+                $("#entrada").css("border","solid");
+                $("#entrada").css("border-color","green");
+            } else{
+                swal("La palabra NO se lee igual al derecho y al reves");
+                $("#entrada").css("border","solid");
+                $("#entrada").css("border-color","green");
+            }
+            
+            
+        }
+    </script>
+    <!-- widows reload -->
+
+</body>
+</html>
